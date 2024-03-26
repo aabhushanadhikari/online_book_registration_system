@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+table,th,td{
+	border:1px solid black;
+}
+</style>
+
+<title>my book</title>
+</head>
+<body>
+<center><h1>My Books</h1></center>
+<table style="width: 100%">
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Author</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+<tr th:each="b:${mybooks}">
+<td th:text="${b.id}"></td>
+<td th:text="${b.name}"></td>
+<td th:text="${b.author}"></td>
+<td th:text="${b.price}"></td>
+<td><a th:href="@{'/deletefrommyBook/'+${b.id}}">Delete</a></td>
+</tr>
+</table>
+</body>
+</html>
